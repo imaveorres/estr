@@ -1,3 +1,11 @@
+<?php
+require_once('storeclass.php');
+$mystore = new MyStore();
+$users = $mystore->getUsers();
+print_r($users);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
