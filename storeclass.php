@@ -18,4 +18,9 @@ class MyStore
    echo "There is some problem in the connection : " . $e->getMessage();
   }
  }
+
+ public function closeConnection()
+ {
+  $this->con = null;
+ }
 }
