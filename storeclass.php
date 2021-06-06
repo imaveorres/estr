@@ -29,7 +29,7 @@ class MyStore
  }
 
 
- // get users 
+ // display users 
  public function getUsers()
  {
   $connection = $this->openConnection();
