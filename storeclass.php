@@ -9,7 +9,7 @@ class MyStore
  protected $con;
 
 
- // open conn
+ // open conn method
  public function openConnection()
  {
   try {
@@ -22,14 +22,14 @@ class MyStore
  }
 
 
- // close conn
+ // close conn method
  public function closeConnection()
  {
   $this->con = null;
  }
 
 
- // display users 
+ // display users method
  public function getUsers()
  {
   $connection = $this->openConnection();
@@ -46,7 +46,7 @@ class MyStore
  }
 
 
- // login
+ // login method
  public function login()
  {
  }
