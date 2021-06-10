@@ -44,4 +44,13 @@ class MyStore
    return 0;
   }
  }
+
+
+ // login
+ public function login()
+ {
+ }
 }
+
+// instantiate(instantiation) or create an object
+$store = new MyStore();
