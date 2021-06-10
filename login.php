@@ -11,25 +11,27 @@
 
 <body>
  <div class="container">
-  <div class="field">
-   <label class="label">Username</label>
-   <div class="control has-icons-left">
-    <input class="input" type="text" name="username" id="username">
-    <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+  <div class="login-form">
+   <div class="field">
+    <label class="label">Username</label>
+    <div class="control has-icons-left">
+     <input class="input" type="text" name="username" id="username">
+     <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+    </div>
    </div>
-  </div>
 
-  <div class="field">
-   <label class="label">Password</label>
-   <div class="control has-icons-left">
-    <input class="input" type="password" name="password" id="password">
-    <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+   <div class="field">
+    <label class="label">Password</label>
+    <div class="control has-icons-left">
+     <input class="input" type="password" name="password" id="password">
+     <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+    </div>
    </div>
-  </div>
 
-  <div class="field">
-   <div class="control">
-    <button class="button is-link" type="submit" name="submit">Login</button>
+   <div class="field">
+    <div class="control">
+     <button class="button is-link" type="submit" name="submit">Login</button>
+    </div>
    </div>
   </div>
  </div>
