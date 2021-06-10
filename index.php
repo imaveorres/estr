@@ -1,7 +1,7 @@
 <?php
 require_once('storeclass.php');
-$mystore = new MyStore();
-$users = $mystore->getUsers();
+// accessing methods that inside class using arrow operator
+$users = $store->getUsers();
 print_r($users);
 ?>
 
