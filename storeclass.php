@@ -52,5 +52,5 @@ class MyStore
  }
 }
 
-// instantiate(instantiation) or create an object
+// instantiate(instantiation) a class to create an object
 $store = new MyStore();
