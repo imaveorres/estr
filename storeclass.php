@@ -49,6 +49,21 @@ class MyStore
  // login method
  public function login()
  {
+  // check if there is post request 'submit'
+  if (isset($_POST['submit'])) {
+   $stored_password = "cc03e747a6afbbcbf8be7668acfebee5";
+   $password = $_POST['password'];
+   if ($stored_password == md5($password)) {
+    echo "Login succes!";
+   } else {
+    echo "Login failed!";
+   }
+  }
+ }
+
+ // add user method
+ public function addUser()
+ {
  }
 }
 
