@@ -64,6 +64,9 @@ class MyStore
  // add user method
  public function addUser()
  {
+  // check if there is post request 'add'
+  if (isset($_POST['add'])) {
+  }
  }
 }
 
