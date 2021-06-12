@@ -1,5 +1,6 @@
 <?php
 require_once('storeclass.php');
+// access methods addUser inside store class
 $store->addUser();
 ?>
 <!DOCTYPE html>
