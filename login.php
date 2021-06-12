@@ -27,7 +27,7 @@ $store->login();
       </span>
      </div>
     </div>
-
+    <!--first field end-->
     <div class="field">
      <label class="label">Password</label>
      <div class="control has-icons-left">
@@ -37,16 +37,17 @@ $store->login();
       </span>
      </div>
     </div>
-
+    <!--second field end-->
     <div class="field">
      <div class="control">
       <button class="button is-link" type="submit" name="submit">Login</button>
      </div>
     </div>
+    <!--third field end-->
    </form>
   </div>
  </div>
- <!--end of container-->
+ <!--container end-->
 
 </body>
 
