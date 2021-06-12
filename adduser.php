@@ -1,3 +1,7 @@
+<?php
+require_once('storeclass.php');
+$store->addUser();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
