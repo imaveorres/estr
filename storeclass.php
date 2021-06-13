@@ -51,15 +51,23 @@ class MyStore
  {
   // check if there is post request 'submit'
   if (isset($_POST['submit'])) {
-   $stored_password = "cc03e747a6afbbcbf8be7668acfebee5";
-   $password = $_POST['password'];
-   if ($stored_password == md5($password)) {
-    echo "Login succes!";
+   $username = $_POST['email'];
+   $password = md5($_POST['password']);
+
+   $connection = $this->openConnection();
+   $stmt = $connection->prepare("SELECT * FROM members WHERE email = ? AND password = ?");
+   $stmt->execute([$username, $password]);
+
+   $total = $stmt->rowCount();
+   if ($total > 0) {
+    echo "Login Success.";
    } else {
-    echo "Login failed!";
+    echo "Login Failed!";
    }
   }
  }
+
+
 
  // add user method
  public function addUser()
