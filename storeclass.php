@@ -83,16 +83,20 @@ class MyStore
  // add user method
  public function addUser()
  {
-  $email = $_POST['email'];
-  $password = md5($_POST['password']);
-  $firstname = $_POST['firstname'];
-  $lastname = $_POST['lastname'];
-
   // check if there is post request 'add'
   if (isset($_POST['add'])) {
-   $connection = $this->openConnection();
-   $stmt = $connection->prepare("INSERT INTO members (`email`, `password`, `first_name`, `last_name`) VALUES (?, ?, ?, ?)");
-   $stmt->execute([$email, $password, $firstname, $lastname]);
+   $email = $_POST['email'];
+   $password = md5($_POST['password']);
+   $firstname = $_POST['firstname'];
+   $lastname = $_POST['lastname'];
+
+   if ($this->checkUserExist($email) == 0) {
+    $connection = $this->openConnection();
+    $stmt = $connection->prepare("INSERT INTO members (`email`, `password`, `first_name`, `last_name`) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$email, $password, $firstname, $lastname]);
+   } else {
+    echo "User is already exist!";
+   }
   }
  }
 }
