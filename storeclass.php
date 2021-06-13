@@ -57,8 +57,8 @@ class MyStore
    $connection = $this->openConnection();
    $stmt = $connection->prepare("SELECT * FROM members WHERE email = ? AND password = ?");
    $stmt->execute([$username, $password]);
-
    $total = $stmt->rowCount();
+
    if ($total > 0) {
     echo "Login Success.";
    } else {
@@ -67,6 +67,17 @@ class MyStore
   }
  }
 
+
+ // check user exist method
+ public function checkUserExist($email)
+ {
+  $connection = $this->openConnection();
+  $stmt = $connection->prepare("SELECT * FROM members WHERE email = ?");
+  $stmt->execute([$email]);
+  $total = $stmt->rowCount();
+
+  return $total;
+ }
 
 
  // add user method
