@@ -22,7 +22,7 @@ $store->login();
     <div class="field">
      <label class="label">Username</label>
      <div class="control has-icons-left">
-      <input class="input" type="text" name="username" id="username">
+      <input class="input" type="email" name="email" id="email">
       <span class="icon is-small is-left">
        <i class="fas fa-user"></i>
       </span>
