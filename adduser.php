@@ -23,7 +23,7 @@ $store->addUser();
     <div class="field">
      <label class="label">Email</label>
      <div class="control has-icons-left">
-      <input class="input" type="email" name="email" id="email">
+      <input class="input" type="email" name="email" id="email" required>
       <span class="icon is-small is-left">
        <i class="fas fa-envelope"></i>
       </span>
@@ -33,7 +33,7 @@ $store->addUser();
     <div class="field">
      <label class="label">Password</label>
      <div class="control has-icons-left">
-      <input class="input" type="password" name="password" id="password">
+      <input class="input" type="password" name="password" id="password" required>
       <span class="icon is-small is-left">
        <i class="fas fa-lock"></i>
       </span>
@@ -43,14 +43,14 @@ $store->addUser();
     <div class="field">
      <label class="label">Firstname</label>
      <div class="control has-icons-left">
-      <input class="input" type="text" name="firstname" id="firstname">
+      <input class="input" type="text" name="firstname" id="firstname" required>
      </div>
     </div>
     <!--third field end-->
     <div class="field">
      <label class="label">Lastname</label>
      <div class="control has-icons-left">
-      <input class="input" type="text" name="lastname" id="lastname">
+      <input class="input" type="text" name="lastname" id="lastname" required>
      </div>
     </div>
     <!--fourth field end-->
