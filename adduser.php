@@ -42,14 +42,14 @@ $store->addUser();
     <!--second field end-->
     <div class="field">
      <label class="label">Firstname</label>
-     <div class="control has-icons-left">
+     <div class="control">
       <input class="input" type="text" name="firstname" id="firstname" required>
      </div>
     </div>
     <!--third field end-->
     <div class="field">
      <label class="label">Lastname</label>
-     <div class="control has-icons-left">
+     <div class="control">
       <input class="input" type="text" name="lastname" id="lastname" required>
      </div>
     </div>
