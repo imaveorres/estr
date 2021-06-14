@@ -87,6 +87,17 @@ class MyStore
  }
 
 
+ // get user data method
+ public function getUserData()
+ {
+  if (!isset($_SESSION)) {
+   session_start();
+  }
+
+  return $_SESSION['userdata'];
+ }
+
+
  // check user exist method
  public function checkUserExist($email)
  {
