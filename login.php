@@ -1,6 +1,6 @@
 <?php
 require_once('storeclass.php');
-// access methods login inside store class
+// accessing method inside class using arrow operator
 $store->login();
 ?>
 <!DOCTYPE html>
