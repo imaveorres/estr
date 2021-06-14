@@ -1,11 +1,10 @@
 <?php
 require_once('storeclass.php');
-// accessing methods inside class using arrow operator
+// accessing method inside class using arrow operator
 $users = $store->getUsers();
-print_r($users);
+$user_details = $store->getUserData();
+print_r($user_details);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
