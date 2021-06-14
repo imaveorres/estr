@@ -57,14 +57,33 @@ class MyStore
    $connection = $this->openConnection();
    $stmt = $connection->prepare("SELECT * FROM members WHERE email = ? AND password = ?");
    $stmt->execute([$username, $password]);
+   $user = $stmt->fetch();
    $total = $stmt->rowCount();
 
    if ($total > 0) {
-    echo "Login Success.";
+    echo "Welcome " . $user['first_name'] . " " . $user['last_name'];
+    $this->setUserData($user);
    } else {
     echo "Login Failed!";
    }
   }
+ }
+
+
+ // set user data or session method
+ public function setUserData($array)
+ {
+  // if not session is set then set session
+  if (!isset($_SESSION)) {
+   session_start();
+  }
+
+  $_SESSION['userdata'] = array(
+   "fullname" => $array['first_name'] . " " . $array['last_name'],
+   "access" => $array['access']
+  );
+
+  return $_SESSION['userdata'];
  }
 
 
