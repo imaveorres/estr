@@ -1,7 +1,13 @@
 <?php
 require_once('storeclass.php');
-// access methods addUser inside store class
+// accessing methods inside class using arrow operator
 $store->addUser();
+$user_details = $store->getUserData();
+// check if session user data is set otherwise redirect page
+if (isset($user_details)) {
+} else {
+ header("Location: login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
