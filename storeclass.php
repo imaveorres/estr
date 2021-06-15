@@ -9,6 +9,7 @@ class MyStore
  protected $con;
 
 
+
  // open conn method
  public function openConnection()
  {
@@ -22,11 +23,13 @@ class MyStore
  }
 
 
+
  // close conn method
  public function closeConnection()
  {
   $this->con = null;
  }
+
 
 
  // display users method
@@ -44,6 +47,7 @@ class MyStore
    return 0;
   }
  }
+
 
 
  // login method
@@ -70,6 +74,7 @@ class MyStore
  }
 
 
+
  // set user data or session method
  public function setUserData($array)
  {
@@ -87,15 +92,23 @@ class MyStore
  }
 
 
+
  // get user data method
  public function getUserData()
  {
+  // check if session is not set otherwise start session
   if (!isset($_SESSION)) {
    session_start();
   }
 
-  return $_SESSION['userdata'];
+  // check if session userdata is set otherwise return null
+  if (isset($_SESSION['userdata'])) {
+   return $_SESSION['userdata'];
+  } else {
+   return NULL;
+  }
  }
+
 
 
  // logout method
@@ -110,6 +123,7 @@ class MyStore
  }
 
 
+
  // check user exist method
  public function checkUserExist($email)
  {
@@ -120,6 +134,7 @@ class MyStore
 
   return $total;
  }
+
 
 
  // add user method
@@ -142,6 +157,7 @@ class MyStore
   }
  }
 }
+
 
 // instantiate(instantiation) a class to create an object
 $store = new MyStore();
