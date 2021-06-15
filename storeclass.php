@@ -98,6 +98,18 @@ class MyStore
  }
 
 
+ // logout method
+ public function logout()
+ {
+  if (!isset($_SESSION)) {
+   session_start();
+  }
+
+  $_SESSION['userdata'] = NULL;
+  unset($_SESSION['userdata']);
+ }
+
+
  // check user exist method
  public function checkUserExist($email)
  {
