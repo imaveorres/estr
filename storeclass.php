@@ -2,7 +2,7 @@
 
 class Store
 {
- private $server = "mysql:host=localhost;dbname=mystore";
+ private $server = "mysql:host=localhost;dbname=e_store";
  private $user =  "root";
  private $pass = "";
  private $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
@@ -85,7 +85,7 @@ class Store
 
   $_SESSION['userdata'] = array(
    "fullname" => $array['first_name'] . " " . $array['last_name'],
-   "access" => $array['access']
+   "access_type" => $array['access_type']
   );
 
   return $_SESSION['userdata'];
@@ -142,15 +142,17 @@ class Store
  {
   // check if there is post request 'add'
   if (isset($_POST['add'])) {
-   $email = $_POST['email'];
-   $password = md5($_POST['password']);
    $firstname = $_POST['firstname'];
    $lastname = $_POST['lastname'];
+   $address = $_POST['address'];
+   $mobile = $_POST['mobile'];
+   $email = $_POST['email'];
+   $password = md5($_POST['password']);
 
    if ($this->checkUserExist($email) == 0) {
     $connection = $this->openConnection();
-    $stmt = $connection->prepare("INSERT INTO members (`email`, `password`, `first_name`, `last_name`) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$email, $password, $firstname, $lastname]);
+    $stmt = $connection->prepare("INSERT INTO members (`first_name`, `last_name`, `address`, `mobile`, `email`, `password`) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$firstname, $lastname, $address, $mobile, $email, $password]);
    } else {
     echo "User is already exist!";
    }
