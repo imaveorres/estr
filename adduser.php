@@ -5,6 +5,9 @@ $store->addUser();
 $user_details = $store->getUserData();
 // check if session user data is set otherwise redirect page
 if (isset($user_details)) {
+ if ($user_details['access'] != "administrator") {
+  header("Location: login.php");
+ }
 } else {
  header("Location: login.php");
 }
