@@ -1,6 +1,6 @@
 <?php
 
-class MyStore
+class Store
 {
  private $server = "mysql:host=localhost;dbname=mystore";
  private $user =  "root";
@@ -160,4 +160,4 @@ class MyStore
 
 
 // instantiate(instantiation) a class to create an object
-$store = new MyStore();
+$store = new Store();
