@@ -5,7 +5,7 @@ $store->addUser();
 $user_details = $store->getUserData();
 // check if session user data is set otherwise redirect page
 if (isset($user_details)) {
- if ($user_details['access'] != "administrator") {
+ if ($user_details['access_type'] != "administrator") {
   header("Location: login.php");
  }
 } else {
@@ -38,7 +38,7 @@ if (isset($user_details)) {
       </span>
      </div>
     </div>
-    <!--first field end-->
+    <!--1st field end-->
     <div class="field">
      <label class="label">Password</label>
      <div class="control has-icons-left">
@@ -48,21 +48,35 @@ if (isset($user_details)) {
       </span>
      </div>
     </div>
-    <!--second field end-->
+    <!--2nd field end-->
     <div class="field">
      <label class="label">Firstname</label>
      <div class="control">
       <input class="input" type="text" name="firstname" id="firstname" required>
      </div>
     </div>
-    <!--third field end-->
+    <!--3rd field end-->
     <div class="field">
      <label class="label">Lastname</label>
      <div class="control">
       <input class="input" type="text" name="lastname" id="lastname" required>
      </div>
     </div>
-    <!--fourth field end-->
+    <!--4th field end-->
+    <div class="field">
+     <label class="label">Address</label>
+     <div class="control">
+      <input class="input" type="text" name="address" id="address" required>
+     </div>
+    </div>
+    <!--5th field end-->
+    <div class="field">
+     <label class="label">Mobile</label>
+     <div class="control">
+      <input class="input" type="text" name="mobile" id="mobile" required>
+     </div>
+    </div>
+    <!--6 field end-->
     <div class="field">
      <div class="control">
       <button class="button is-link" type="submit" name="add">Add</button>
