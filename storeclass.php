@@ -161,5 +161,5 @@ class Store
 }
 
 
-// instantiate(instantiation) a class to create an object
+// instantiate or instantiation a class to create an object
 $store = new Store();
