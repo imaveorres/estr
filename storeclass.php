@@ -158,7 +158,58 @@ class Store
    }
   }
  }
-}
+
+
+
+ // check product exist method
+ public function productExist($name)
+ {
+  $connection = $this->openConnection();
+  $stmt = $connection->prepare("SELECT LOWER(`product_name`) FROM products WHERE product_name = ?");
+  $stmt->execute([strtolower($name)]);
+  $total = $stmt->rowCount();
+
+  return $total;
+ }
+
+
+
+ // add product method
+ public function addProduct()
+ {
+  if (isset($_POST['add_product'])) {
+   $product_name = $_POST['product_name'];
+   $product_type = $_POST['product_type'];
+   $min_stock = $_POST['min_stock'];
+   if ($this->productExist($product_name) == 0) {
+    $connection = $this->openConnection();
+    $stmt = $connection->prepare("INSERT INTO products (`product_name`,`product_type`, `minimum_stock`) VALUES (?, ?, ?)");
+
+    $stmt->execute([$product_name, $product_type, $min_stock]);
+   } else {
+    echo "Product already exist!";
+   }
+  }
+ }
+
+
+
+ // list of products method
+ public function getAllProducts()
+ {
+  $connection = $this->openConnection();
+  $stmt = $connection->prepare("SELECT * FROM products");
+  $stmt->execute();
+  $products = $stmt->fetchAll();
+  $total = $stmt->rowCount();
+
+  if ($total > 0) {
+   return $products;
+  } else {
+   return FALSE;
+  }
+ }
+} /* closing bracket store class */
 
 
 // instantiate(instantiation) a class to create an object

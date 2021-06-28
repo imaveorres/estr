@@ -1,3 +1,7 @@
+<?php
+require_once('storeclass.php');
+$store->addProduct();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +9,8 @@
  <meta charset="UTF-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>E-Store | Add Product</title>
+ <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+ <title>E-Store | Add products</title>
 </head>
 
 <body>
@@ -15,7 +20,7 @@
    <form action="" method="post">
     <div class="field">
      <label class="label">Product Name</label>
-     <input class="input" type="email" name="product_name" id="product_name" required>
+     <input class="input" type="text" name="product_name" id="product_name" required>
     </div>
     <!--1st field end-->
     <div class="field">
@@ -33,7 +38,7 @@
     <div class="field">
      <label class="label">Minimum Stock</label>
      <div class="control">
-      <input class="input" type="number" name="min_stock" id="min_stock" max="1" value="1" required>
+      <input class="input" type="number" name="min_stock" id="min_stock" max="1000" value="1" required>
      </div>
     </div>
     <!--3rd field end-->
