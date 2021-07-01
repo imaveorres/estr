@@ -224,8 +224,8 @@ class Store
  public function getSingleProduct($id)
  {
   $connection = $this->openConnection();
-  $stmt = $connection->prepare("SELECT * FROM products WHERE ID=?");
-  $stmt->execute();
+  $stmt = $connection->prepare("SELECT * FROM products WHERE ID = ?");
+  $stmt->execute([$id]);
   $product = $stmt->fetchAll();
   $total = $stmt->rowCount();
 
