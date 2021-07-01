@@ -1,0 +1,25 @@
+<?php
+require_once("storeclass.php");
+$id = $_GET['id'];
+$product = $store->getSingleProduct($id);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>E-Store | Product Details</title>
+</head>
+
+<body>
+ <h4><?= $product['product_name']; ?></h4>
+ <h4><?= $product['product_type']; ?></h4>
+ <h4><?= $product['minimum_stock']; ?></h4>
+
+ <a href="products.php">Products</a>
+ <a href="addnewstocks.php">Add new stocks</a>
+</body>
+
+</html>
