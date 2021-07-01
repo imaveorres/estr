@@ -123,6 +123,16 @@ class Store
 
 
 
+ // show_404 error method
+ public function show_404()
+ {
+  http_response_code(404);
+  echo "Page not found!";
+  die;
+ }
+
+
+
  // check user exist method
  public function checkUserExist($email)
  {
@@ -203,6 +213,73 @@ class Store
 
   if ($total > 0) {
    return $products;
+  } else {
+   return FALSE;
+  }
+ }
+
+
+
+ // get single product method
+ public function getSingleProduct($id)
+ {
+  $connection = $this->openConnection();
+  $stmt = $connection->prepare("SELECT product_name, product_type, minimum_stock, SUM(qty) AS total FROM (SELECT * FROM products WHERE products.ID = ?) t1 INNER JOIN product_items t2 ON t1.ID = t2.product_id");
+  $stmt->execute([$id]);
+  $product = $stmt->fetch();
+  $total = $stmt->rowCount();
+
+  if ($total > 0) {
+   return $product;
+  } else {
+   return $this->show_404();
+  }
+ }
+
+
+ // get total produc qty method
+ public function getTotalQty($product_id)
+ {
+  $connection = $this->openConnection();
+  $stmt = $connection->prepare("SELECT *, SUM(qty) AS total FROM product_items WHERE product_id=?");
+  $stmt->execute([$product_id]);
+  $product_qty = $stmt->fetch();
+
+  return $product_qty['total'];
+ }
+
+
+
+ // add stocks method 
+ public function addStock()
+ {
+  if (isset($_POST['add_new_stock'])) {
+   $brand_name = $_POST['brand_name'];
+   $qty = $_POST['qty'];
+   $batch_number = $_POST['batch_number'];
+   $product_id = $_POST['product_id'];
+   $added_by = $_POST['added_by'];
+
+   $connection = $this->openConnection();
+   $stmt = $connection->prepare("INSERT INTO product_items (`product_id`, `qty`, `vendor_name`, `added_by`, `batch_number`) VALUE (?, ?, ?, ?, ?)");
+   $stmt->execute([$product_id, $qty, $brand_name, $added_by, $batch_number]);
+
+   header("Location: productdetails.php?id=" . $product_id);
+  }
+ }
+
+
+ // view all stocks method
+ public function viewAllStocks($product_id)
+ {
+  $connection = $this->openConnection();
+  $stmt = $connection->prepare("SELECT * FROM product_items WHERE product_id=?");
+  $stmt->execute([$product_id]);
+  $stocks = $stmt->fetchAll();
+  $total = $stmt->rowCount();
+
+  if ($total > 0) {
+   return $stocks;
   } else {
    return FALSE;
   }

@@ -17,8 +17,8 @@ $prod = $store->getAllProducts();
  <ul>
   <?php foreach ($prod as $products) { ?>
    <li>
-    <a href="product_details.php?id=<?= $products['ID']; ?>">
-     <?= $products['product_name']; ?> | <?= $products['minimum_stock']; ?>
+    <a href="productdetails.php?id=<?= $products['ID']; ?>">
+     <?= $products['product_name']; ?> | <?= $products['product_type']; ?> | <?= $products['minimum_stock']; ?>
     </a>
    </li>
   <?php } ?>
