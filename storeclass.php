@@ -17,7 +17,6 @@ class Store
    $this->conn = new PDO($this->server, $this->user, $this->pass, $this->options);
    return $this->conn;
   } catch (PDOException $e) {
-
    echo "There is some problem in the connection : " . $e->getMessage();
   }
  }
