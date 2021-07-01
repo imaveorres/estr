@@ -267,6 +267,23 @@ class Store
    header("Location: productdetails.php?id=" . $product_id);
   }
  }
+
+
+ // view all stocks method
+ public function viewAllStocks($product_id)
+ {
+  $connection = $this->openConnection();
+  $stmt = $connection->prepare("SELECT * FROM product_items WHERE product_id=?");
+  $stmt->execute([$product_id]);
+  $stocks = $stmt->fetchAll();
+  $total = $stmt->rowCount();
+
+  if ($total > 0) {
+   return $stocks;
+  } else {
+   return FALSE;
+  }
+ }
 } /* closing bracket store class */
 
 

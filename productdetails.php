@@ -2,6 +2,7 @@
 require_once("storeclass.php");
 $id = $_GET['id'];
 $product = $store->getSingleProduct($id);
+$stocks = $store->viewAllStocks($id);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +21,12 @@ $product = $store->getSingleProduct($id);
  <h4><?= $product['minimum_stock']; ?></h4>
  <br>
  <h4>Total: <?= $product['total']; ?></h4>
+
+ <hr>
+ <?php foreach ($stocks as $stock) { ?>
+  <p><?= $stock['vendor_name']; ?> <?= $stock['qty']; ?> </p>
+ <?php } ?>
+
  <a href="products.php">Products</a>
  <a href="addnewstocks.php?id=<?= $product['ID']; ?>">Add new stocks</a>
 </body>
