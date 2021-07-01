@@ -123,6 +123,16 @@ class Store
 
 
 
+ // show_404 error method
+ public function show_404()
+ {
+  http_response_code(404);
+  echo "Page not found!";
+  die;
+ }
+
+
+
  // check user exist method
  public function checkUserExist($email)
  {
