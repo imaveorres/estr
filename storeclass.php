@@ -136,7 +136,6 @@ class Store
  }
 
 
-
  // add user method
  public function addUser()
  {
