@@ -217,6 +217,24 @@ class Store
    return FALSE;
   }
  }
+
+
+
+ // get single product method
+ public function getSingleProduct($id)
+ {
+  $connection = $this->openConnection();
+  $stmt = $connection->prepare("SELECT * FROM products WHERE ID=?");
+  $stmt->execute();
+  $product = $stmt->fetchAll();
+  $total = $stmt->rowCount();
+
+  if ($total > 0) {
+   return $product;
+  } else {
+   return $this->show_404();
+  }
+ }
 } /* closing bracket store class */
 
 
